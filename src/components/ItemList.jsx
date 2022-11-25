@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';    // Ver que esta el useContext
 import { Link } from 'react-router-dom';
 import Item from './Item';
 

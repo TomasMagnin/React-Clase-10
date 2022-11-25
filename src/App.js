@@ -18,23 +18,33 @@ import { useState, createContext } from 'react';
 
 
 
+/* Pasos del Context */
+// 1_ creamos el contexto, 2 creamos el Provider para proveer variables y funciones, estados, 3_ el que lo usaContext en el hijo.
 
 
+// Los Hook siempre es mejor usar un solo Hook y merter todo ahi.
 
-/* Usamo el context para pasar un estado directamente al hijo que querramos, pero afecta a todos los hijos */
+
+/* Usamo el context para Proveer un estado directamente a los hijos que querramos, pero afecta a todos los hijos */
+
+// No todos los Hooks llevan llaves [], por que si devuelve un solo valor no lleva llaves, pero si devuelve mas de un valor si lleva llaves. Tambien pueden devolver funciones
 
 export const contextoGeneral =  createContext();    // Usamos este hook para otro componente, y lo exportamos, no necesariamente tiene que ser por default.
 
-
+// Para exportarlo usamos " import { contextoGeneral } from '../App'; "
 
 
 
 export default function App() {
 
+
   const [darkMode, setdarkMode] = useState(false);    /* Delcaramos aca el dark item para poder usarlo en toda la pagina, cuidado que se lo tengo que pasar a los hijos y nietos, (itemListContainer,itemList y item) */
 
   return (
     
+    
+    <contextoGeneral.Provider value={ { darkMode, setdarkMode} }>             {/* Este contexto general va proveer con los valores "darkMode, setdarkMode" a todos los hijos de ese contexto, todos los que estan dentro de BrowserRouter. Tambien podemos mandar variavles quen no estan dentro de la funcion contextoGeneral */}
+
     <BrowserRouter>
       {/* PONGO COMPONENTES QUE QUIERO QUE ESTEN EN TODAS LAS RUTAS */}
       <Navbar darkMode={darkMode} setdarkMode={setdarkMode} />
@@ -55,7 +65,7 @@ export default function App() {
       {/* PONGO COMPONENTES QUE QUIERO QUE ESTEN EN TODAS LAS RUTAS ABAJO DE TODO*/}
      {/*  <Footer /> */}
     </BrowserRouter>
-  
+    </contextoGeneral.Provider>
 );
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import { contextoGeneral } from '../App';    // Importamos el contexto general
 
 /* Vamos a crear un context para no pasar la propiedad del abuelo, al padre, hijo y nieto */
 
@@ -9,6 +9,10 @@ import { Link } from 'react-router-dom';
 export default function Item({item, darkMode, setdarkMode}) {
   
    /*  const [darkMode, setdarkMode] = useState(false);  */       // Este dark modo es propio de cada item, no es general para toda la pagina el mismo estado. ENtonces lo vamos a colocar en el ItemList
+
+  // Aca tenemos el 3er paso que usamos el context
+
+  const { darkMode, setdarkMode} = useContext(contextoGeneral)    // Aclaramos que contexto queremos traer
 
 
   return (
