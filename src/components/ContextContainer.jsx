@@ -34,3 +34,15 @@ export default function ContextContainer({children}) {   // El children que lleg
     </contextoGeneral.Provider>
   )
 }
+
+
+
+
+// Para el proyecto proveer con las sigunetes funciones para el carrito a la app 
+
+/* const[carrito, set carrito] = useState([]);
+
+function addItem(item, quantity)    // Agregar cierta cantidad de items al carrito
+function removeItem(itemID)         // Remover un item del Cart usando su ID
+function clear()                    // Remover todos los items
+function isInCart: (id) => true|false */
