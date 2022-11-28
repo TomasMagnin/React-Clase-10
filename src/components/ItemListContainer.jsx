@@ -4,9 +4,9 @@ import "./ItemListContainer";
 import { producsBK } from "./data.js";
 import ItemList from "./ItemList";
 
+// Para uysar el context, sacamos el darkMoe y setDarkmode, que es lo que recive.
 
-
-export default function ItemListContainer({greeting, }) {        
+export default function ItemListContainer({}) {        
 
 
 
@@ -32,8 +32,14 @@ export default function ItemListContainer({greeting, }) {
   }, [idcategory]);        /* Si cambia el ID de Categoria se ejecuta de nuevo el componente, por ende la promesa se ejecuta */
 
   return (
-    <div  className="text-center"  style={{ border: "2px solid red"}}>{greeting}
-      <ItemList productos={productos} darkMode={darkMode} setdarkMode={setdarkMode} />;   {/* Le pasamos el darkmode al item hijo */}
+    <div  className="text-center"  style={{ border: "2px solid red"}}>
+      <ItemList 
+          productos={productos} 
+
+          // Para usar el context sacamos este pasamano, ya que nos soluciona esto el context. estos son los parametros que enviabamos al item hijo
+
+           /* darkMode={darkMode} 
+          setdarkMode={setdarkMode} */ />;   {/* Le pasamos el darkmode al item hijo */} 
 
 
        {!productos.length && "Loading..."}           {/* Esto es el equivalente a un IF, si la varible productos tiene contenido entonces aparece el string loading */}
